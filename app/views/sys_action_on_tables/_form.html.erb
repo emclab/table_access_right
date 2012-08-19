@@ -1,0 +1,7 @@
+<%= simple_form_for(@sys_action_on_table) do |f| %>
+
+  <%= f.input :table_name, :label => 'Table Name:', :collection => return_table_name_list %>
+  <%= f.input :action, :label => 'Action:', :hint => 'index, new, create, approve' %>
+
+  <%= f.button :submit, '保存' %>  
+<% end %>

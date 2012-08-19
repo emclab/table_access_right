@@ -1,0 +1,36 @@
+<div id="main_body">
+<h1>User Rigths搜索</h1>
+<%=@search_params%>
+<p>总数： <%=@sys_user_rights.count %>, 
+	职位数量： <%= @sys_user_rights.select("DISTINCT(sys_user_position_id)").count %>,</p>
+         数据表数目： <%= @sys_user_rights.joins(:sys_action_on_table).select("DISTINCT(table_name)").count %>, 
+	操作数目： <%= @sys_user_rights.joins(:sys_action_on_table).select("DISTINCT(action)").count  %>,	
+</p>		 
+
+<table>
+  <tr>
+  	<th>Position</th>
+    <th>PositionName</th>
+    <th>Action</th>
+    <th>TableName</th>
+    <th>MatchingColumnName</th>
+    <th></th>  
+  </tr>
+
+<% @sys_user_rights.each do |p| %>
+  <tr>
+  	
+    <td><%= p.sys_user_position.position %></td> 	
+    <td><%= p.sys_user_position.position_name %></td> 
+    <td><%= p.sys_action_on_table.action %></td>
+    <td><%= p.sys_action_on_table.table_name %></td>
+    <td><%= p.matching_column_name %></td>
+    <td><%= link_to 'Delete', sys_user_right_path(p), :method => :delete, :confirm => 'Are you sure to delete?' %></td>
+  </tr>
+<% end %>
+
+</table>
+ 
+  <%= link_to "输入Right", new_sys_user_right_path(:format => :js), :remote => true, :id => 'new_log_link' %>
+  
+</div>

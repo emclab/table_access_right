@@ -1,0 +1,23 @@
+<div id="main_body">
+<h1>Table Action</h1>
+<table>
+  <tr>
+    <th>Action</th>
+    <th>TableName</th>
+    <th></th>
+  </tr>
+
+<% @sys_action_on_tables.each do |p| %>
+  <tr>
+  	
+    <td><%= p.action %></td> 	
+    <td><%= p.table_name %></td> 
+    <td><%= link_to 'Delete', sys_action_on_table_path(p), :method => :delete, :confirm => 'Are you sure to delete?' %></td>
+  </tr>
+<% end %>
+
+</table>
+
+  <%= link_to "输入数据表操作", new_sys_action_on_table_path(:format => :js), :remote => true, :id => 'new_log_link' %>
+
+</div>
