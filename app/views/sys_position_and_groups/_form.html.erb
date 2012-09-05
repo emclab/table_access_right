@@ -1,0 +1,9 @@
+<%= simple_form_for(@sys_position_and_group) do |f| %>
+
+  <%= f.input :sys_module_id, :label => 'Module/Position Group:', :collection => SysModule.order("module_name, position_group"), :value_method => :id,
+            :label_method => lambda {|r| "##{r.id}, #{r.module_name}, #{r.position_group}"}, :selected => @sys_position_and_group.sys_module_id, :include_blank => true %>
+  <%= f.input :sys_user_position_id, :label => 'UserPisition:', :collection => SysUserPosition.order("position_name"), :value_method => :id,
+            :label_method => :position_name, :selected => @sys_position_and_group.sys_user_position_id, :include_blank => true %>
+
+  <%= f.button :submit, '保存' %>  
+<% end %>

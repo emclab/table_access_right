@@ -34,12 +34,12 @@ class SysUserPositionsController < ApplicationController
   
   def destroy
     @sys_user_position = SysUserPosition.find(params[:id])
-    @sys_user_position.transaction do
-      @sys_user_position.destroy
+    @sys_user_position.transaction do    
       sys_user_rights = SysUserRight.where("sys_user_position_id = ?", @sys_user_position.id)
       sys_user_rights.each do |r|
         r.destroy
       end
+      @sys_user_position.destroy
     end 
     redirect_to sys_user_positions_path, :notice => 'Destroyed'  
   end

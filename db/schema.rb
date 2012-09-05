@@ -11,13 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120817030336) do
+ActiveRecord::Schema.define(:version => 20120905190546) do
 
   create_table "sys_action_on_tables", :force => true do |t|
     t.string   "action"
     t.string   "table_name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "sys_modules", :force => true do |t|
+    t.string   "module_name"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "position_group"
+  end
+
+  create_table "sys_position_and_groups", :force => true do |t|
+    t.integer  "sys_module_id"
+    t.integer  "sys_user_position_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "sys_user_positions", :force => true do |t|

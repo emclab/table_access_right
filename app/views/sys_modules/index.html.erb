@@ -1,0 +1,27 @@
+<div id="main_body">
+<h1>Module</h1>
+<table>
+  <tr>
+  	<th>#</th>
+    <th>ModuleName</th>
+    <th>PositionGroup</th>
+    <th></th> 
+    <th></th> 
+  </tr>
+
+<% @sys_modules.each do |p| %>
+  <tr>
+  	
+    <td><%= p.id %></td> 	
+    <td><%= p.module_name %></td> 
+    <td><%= p.position_group %></td>
+    <td><%= link_to 'Edit', edit_sys_module_path(p, :format => :js), :remote => true %></td>
+    <td><%= link_to 'Delete', sys_module_path(p), :method => :delete, :confirm => 'Are you sure to delete?' %></td>
+  </tr>
+<% end %>
+
+</table>
+
+  <%= link_to "输入Module&Group", new_sys_module_path(:format => :js), :remote => true, :id => 'new_log_link' %>
+
+</div>
