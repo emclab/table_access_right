@@ -1,4 +1,40 @@
 TableAccessRight::Application.routes.draw do
+  get "sys_module_mappings/index"
+
+  get "sys_module_mappings/new"
+
+  get "sys_module_mappings/create"
+
+  get "sys_module_mappings/edit"
+
+  get "sys_module_mappings/update"
+
+  get "sys_module_mappings/destroy"
+
+  get "sys_user_groups/index"
+
+  get "sys_user_groups/new"
+
+  get "sys_user_groups/create"
+
+  get "sys_user_groups/edit"
+
+  get "sys_user_groups/update"
+
+  get "sys_user_groups/destroy"
+
+  get "sys_user_position_groups/index"
+
+  get "sys_user_position_groups/new"
+
+  get "sys_user_position_groups/create"
+
+  get "sys_user_position_groups/edit"
+
+  get "sys_user_position_groups/update"
+
+  get "sys_user_position_groups/destroy"
+
   get "sys_position_and_groups/index"
 
   get "sys_position_and_groups/new"
@@ -57,10 +93,10 @@ TableAccessRight::Application.routes.draw do
   
   #get "sys_user_positions/destroy"
   
-  resources :sys_user_positions
+  resources :sys_user_groups
   resources :sys_action_on_tables
   resources :sys_modules
-  resources :sys_position_and_groups
+  resources :sys_module_mappings
   resources :sys_user_rights do
     collection do
       get 'search' 

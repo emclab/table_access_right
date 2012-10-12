@@ -51,9 +51,9 @@ describe SysModulesController do
       response.should redirect_to sys_modules_path
     end
     
-    it "should render edit if nil module name" do
+    it "should render edit if nil module group name" do
       m = FactoryGirl.create(:sys_module)
-      get 'update', :id => m.id, :sys_module => {:module_name => ''}   
+      get 'update', :id => m.id, :sys_module => {:module_group_name => ''}   
       response.should render_template('edit')   
     end
   end

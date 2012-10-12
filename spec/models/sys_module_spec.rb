@@ -10,4 +10,10 @@ describe SysModule do
     m = FactoryGirl.build(:sys_module, :module_name => nil)
     m.should_not be_valid
   end
+  
+  it "should reject nil module group name" do
+    m = FactoryGirl.build(:sys_module, :module_group_name => nil)
+    m.should_not be_valid
+  end
+    
 end

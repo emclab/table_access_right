@@ -2,8 +2,8 @@
 <h1>User Rights</h1>
 <table>
   <tr>
-  	<th>Position</th>
-    <th>PositionName</th>
+  	<th>UserGroupName</th>
+    <th>简注</th>
     <th>Action</th>
     <th>TableName</th>
     <th>MatchingColName</th>
@@ -13,8 +13,8 @@
 <% @sys_user_rights.each do |p| %>
   <tr>
   	
-    <td><%= p.sys_user_position.position %></td> 	
-    <td><%= p.sys_user_position.position_name %></td> 
+    <td><%= p.sys_user_group.user_group_name if p.sys_user_group_id.present? %></td> 	
+    <td><%= p.sys_user_group.short_note if p.sys_user_group_id.present? %></td> 
     <td><%= p.sys_action_on_table.action %></td>
     <td><%= p.sys_action_on_table.table_name %></td>
     <td><%= p.matching_column_name %></td>

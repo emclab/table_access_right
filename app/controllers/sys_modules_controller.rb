@@ -35,7 +35,7 @@ class SysModulesController < ApplicationController
   def destroy
     @sys_module = SysModule.find(params[:id])
     @sys_module.transaction do
-      SysPositionAndGroup.where("sys_module_id = ?", @sys_module.id).each do |r|
+      SysModuleMapping.where("sys_module_id = ?", @sys_module.id).each do |r|
         r.destroy
       end
       @sys_module.destroy

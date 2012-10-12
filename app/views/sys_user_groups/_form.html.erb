@@ -1,0 +1,7 @@
+<%= simple_form_for(@sys_user_group) do |f| %>
+
+  <%= f.input :user_group_name, :label => '用户群/UserGroupName:' %>
+  <%= f.input :short_note, :label => '简注:', :hint => 'ex, engineers' %>
+
+  <%= f.button :submit, '保存' %>
+<% end %>

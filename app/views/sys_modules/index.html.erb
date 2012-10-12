@@ -4,7 +4,7 @@
   <tr>
   	<th>#</th>
     <th>ModuleName</th>
-    <th>PositionGroup</th>
+    <th>ModuleGroup</th>
     <th></th> 
     <th></th> 
   </tr>
@@ -14,7 +14,7 @@
   	
     <td><%= p.id %></td> 	
     <td><%= p.module_name %></td> 
-    <td><%= p.position_group %></td>
+    <td><%= p.module_group_name %></td>
     <td><%= link_to 'Edit', edit_sys_module_path(p, :format => :js), :remote => true %></td>
     <td><%= link_to 'Delete', sys_module_path(p), :method => :delete, :confirm => 'Are you sure to delete?' %></td>
   </tr>

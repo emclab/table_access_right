@@ -6,9 +6,9 @@ describe SysUserRightsController do
   
   describe "GET 'index'" do
     it "be OK" do
-      p = FactoryGirl.create(:sys_user_position)
+      p = FactoryGirl.create(:sys_user_group)
       a = FactoryGirl.create(:sys_action_on_table)
-      r = FactoryGirl.create(:sys_user_right, :sys_action_on_table_id => a.id, :sys_user_position_id => p.id)
+      r = FactoryGirl.create(:sys_user_right, :sys_action_on_table_id => a.id, :sys_user_group_id => p.id)
       get 'index'
       response.should be_success
       assigns(:sys_user_rights).should eq([r])

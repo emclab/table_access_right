@@ -1,0 +1,25 @@
+<div id="main_body">
+<h1>User群</h1>
+<table>
+  <tr>
+    <th>UserGroup</th>
+    <th>简注</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sys_user_groups.each do |p| %>
+  <tr>
+  
+    <td><%= p.user_group_name %></td>
+    <td><%= p.short_note %></td>
+    <td><%= link_to 'Edit', edit_sys_user_group_path(p, :format => :js), :remote => true %></td>
+    <td><%= link_to 'Delete', sys_user_group_path(p), :method => :delete, :confirm => 'Are you sure to delete?' %></td>
+  </tr>
+<% end %>
+
+</table>
+
+  <%= link_to "输入Position", new_sys_user_group_path(:format => :js), :remote => true, :id => 'new_log_link' %>
+
+</div>

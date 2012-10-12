@@ -1,0 +1,9 @@
+<%= simple_form_for(@sys_module_mapping) do |f| %>
+
+  <%= f.input :sys_module_id, :label => 'Module/UserGroup:', :collection => SysModule.order("module_name, module_group_name"), :value_method => :id,
+            :label_method => lambda {|r| "##{r.id}, #{r.module_name}, #{r.module_group}"}, :selected => @sys_module_mapping.sys_module_id, :include_blank => true %>
+  <%= f.input :sys_user_group_id, :label => 'UserGroup:', :collection => SysUserGroup.order("user_group_name"), :value_method => :id,
+            :label_method => :user_group_name, :selected => @sys_module_mapping.sys_user_group_id, :include_blank => true %>
+
+  <%= f.button :submit, '保存' %>  
+<% end %>

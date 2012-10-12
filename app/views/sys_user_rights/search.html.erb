@@ -2,7 +2,7 @@
 <h1>Rights搜索</h1>
 <%= simple_form_for @sys_user_right, :method => :put, :url => { :action => 'search_results' } do |f| %>    
   <%= f.input :table_name_s, :collection => ActiveRecord::Base.connection.tables, :prompt => "选Table Name", :label => "数据表名："  %>
-  <%= f.input :sys_user_position_s, :label => "职位 /Position：", :collection => SysUserPosition.order("position"), :label_method => lambda {|r| "#{r.position} - #{r.position_name}"}, :value_method => :id, :include_blank => true %> 
+  <%= f.input :sys_user_position_s, :label => "职位 /Position：", :collection => SysUserPositionGroup.order("position_group_name"), :label_method => lambda {|r| "#{r.position_group_name} - #{r.short_note}"}, :value_method => :id, :include_blank => true %> 
   <%= f.input :sys_action_on_table_s, :label => "操作/Action ：", :collection => SysActionOnTable.select("action").uniq, :label_method => :action, :value_method => :action, :include_blank => true %> 
   <%= f.button :submit, '搜索' %>  
 <% end %> 

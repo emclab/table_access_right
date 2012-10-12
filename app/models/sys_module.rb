@@ -1,6 +1,6 @@
 class SysModule < ActiveRecord::Base
-  attr_accessible :module_name, :position_group, :as => :role_new
+  attr_accessible :module_name, :module_group_name, :as => :role_new
   
   validates_presence_of :module_name
-  validates_presence_of :position_group
+  validates_presence_of :module_group_name
 end

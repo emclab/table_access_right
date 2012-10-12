@@ -7,7 +7,7 @@ describe SysUserRight do
   end
   
   it "should reject nil sys_user_position_id" do
-    r = FactoryGirl.build(:sys_user_right, :sys_user_position_id => nil)
+    r = FactoryGirl.build(:sys_user_right, :sys_user_group_id => nil)
     r.should_not be_valid
   end
   

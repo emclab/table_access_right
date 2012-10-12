@@ -1,7 +1,7 @@
 # encoding: utf-8
 class SysUserRightsController < ApplicationController
   def index
-    @sys_user_rights = SysUserRight.order("sys_user_position_id, sys_action_on_table_id")
+    @sys_user_rights = SysUserRight.order("sys_user_group_id, sys_action_on_table_id")
   end
 
   def new
@@ -43,7 +43,7 @@ class SysUserRightsController < ApplicationController
   def search_params
     search_params = "参数："
     search_params += ' TableName：' + params[:sys_user_right][:table_name_s] if params[:sys_user_right][:table_name_s].present?
-    search_params += ', 职位：' + SysUserPosition.find(params[:sys_user_right][:sys_user_position_s].to_i).position if params[:sys_user_right][:sys_user_position_s].present?
+    search_params += ', 用户群：' + SysUserGroup.find(params[:sys_user_right][:sys_user_position_s].to_i).position if params[:sys_user_right][:sys_user_position_s].present?
     search_params += ', 操作 ：' + params[:sys_user_right][:sys_action_on_table_s] if params[:sys_user_right][:sys_action_on_table_s].present?
     search_params
   end  

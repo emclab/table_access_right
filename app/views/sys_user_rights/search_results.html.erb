@@ -9,8 +9,8 @@
 
 <table>
   <tr>
-  	<th>Position</th>
-    <th>PositionName</th>
+  	<th>PositionGroupName</th>
+    <th>说明</th>
     <th>Action</th>
     <th>TableName</th>
     <th>MatchingColumnName</th>
@@ -20,8 +20,8 @@
 <% @sys_user_rights.each do |p| %>
   <tr>
   	
-    <td><%= p.sys_user_position.position %></td> 	
-    <td><%= p.sys_user_position.position_name %></td> 
+    <td><%= p.sys_user_position_group.position_group_name %></td> 	
+    <td><%= p.sys_user_position_group.short_note %></td> 
     <td><%= p.sys_action_on_table.action %></td>
     <td><%= p.sys_action_on_table.table_name %></td>
     <td><%= p.matching_column_name %></td>
