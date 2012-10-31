@@ -31,10 +31,11 @@ describe SysUserRightsController do
 
   describe "GET 'destroy'" do
     it "should delete" do
-      r = FactoryGirl.create(:sys_user_right)
+      a = FactoryGirl.create(:sys_action_on_table)
+      r = FactoryGirl.create(:sys_user_right, :sys_action_on_table_id => a.id)
       lambda do
         get 'destroy', :id => r.id
-        response.should be_success
+        response.should redirect_to sys_user_rights_path
       end.should change(SysUserRight, :count).by(-1)
     end
   end

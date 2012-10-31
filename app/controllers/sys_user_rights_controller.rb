@@ -25,6 +25,7 @@ class SysUserRightsController < ApplicationController
     else
       flash[:notice] = 'NOT deleted!'
     end
+    redirect_to sys_user_rights_path
   end
   
   def search

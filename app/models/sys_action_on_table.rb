@@ -6,4 +6,6 @@ class SysActionOnTable < ActiveRecord::Base
   
   validates_presence_of :action
   validates_presence_of :table_name
+  validates :action, :uniqueness => {:scope => :table_name, :case_sensitive => false, :message => "NO duplicate action and table_name pair" }
+  validates :table_name, :uniqueness => { :scope => :action, :case_sensitive => false }
 end

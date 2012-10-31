@@ -3,7 +3,8 @@
   <%= f.input :sys_action_on_table_id, :label => '数据表/操作：', :collection => SysActionOnTable.order("table_name, action"), :label_method => lambda { |r| "#{r.action}, - #{r.table_name}"},
                            :value_method => :id, :include_blank => true %>
   <%= f.input :sys_user_group_id, :label => '用户群/PositionGroup:', :collection => SysUserGroup.order("user_group_name"), :label_method => lambda {|r| "#{r.user_group_name}, - #{r.short_note}"}, 
-                           :value_method => :id,  :include_blank => true %>                           
+                           :value_method => :id,  :include_blank => true %>
+  <%= f.input :accessable_column_name, :lable => 'AccessableColumnName:' %>
   <%= f.input :matching_column_name, :lable => 'MatchingColumnName:' %>
   <%= f.button :submit, '保存' %>  
 
