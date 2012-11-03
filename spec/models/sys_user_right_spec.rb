@@ -16,7 +16,7 @@ describe SysUserRight do
     r.should_not be_valid
   end
   
-  it "should reject duplidate action for the same position" do
+  it "should reject duplicate action for the same position" do
     a = FactoryGirl.create(:sys_action_on_table)
     r = FactoryGirl.create(:sys_user_right, :sys_action_on_table_id => a.id)
     r1 = FactoryGirl.build(:sys_user_right, :sys_action_on_table_id => a.id)
@@ -24,15 +24,15 @@ describe SysUserRight do
   end
 
   describe "before_save callback: check_data" do
-    it "should return false if _all right comes with a non nil accessable column name" do
+    it "should return false if _all right comes with a non nil accessible column name" do
       action = FactoryGirl.create(:sys_action_on_table, :action => "index_all")
-      r = FactoryGirl.build(:sys_user_right, :sys_action_on_table_id => action.id, :accessable_column_name => 'customer_id')
+      r = FactoryGirl.build(:sys_user_right, :sys_action_on_table_id => action.id, :accessible_column_name => 'customer_id')
       r.check_data.should be_false
     end
 
-    it "should return true if non nil accessable column name comes with a action without _all" do
+    it "should return true if non nil accessible column name comes with a action without _all" do
       action = FactoryGirl.create(:sys_action_on_table, :action => "index")
-      r = FactoryGirl.build(:sys_user_right, :sys_action_on_table_id => action.id, :accessable_column_name => "customer_id")
+      r = FactoryGirl.build(:sys_user_right, :sys_action_on_table_id => action.id, :accessible_column_name => "customer_id")
       r.check_data.should be_true
     end
   end

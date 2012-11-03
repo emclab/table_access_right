@@ -1,7 +1,7 @@
 # encoding: utf-8
 class SysUserRight < ActiveRecord::Base
   before_save :check_data
-  attr_accessible :sys_action_on_table_id, :sys_user_group_id, :matching_column_name, :accessable_column_name, :as => :role_new_update
+  attr_accessible :sys_action_on_table_id, :sys_user_group_id, :matching_column_name, :accessible_column_name, :as => :role_new_update
   attr_accessor :sys_action_on_table_s, :sys_user_position_s, :table_name_s
   attr_accessible :sys_action_on_table_s, :sys_user_position_s, :table_name_s, :as => :role_search
   
@@ -22,7 +22,7 @@ class SysUserRight < ActiveRecord::Base
 
   def check_data
     #accessable column only comes with action (without all)
-    return false if SysActionOnTable.find_by_id(sys_action_on_table_id).action[-4..-1] == '_all' && accessable_column_name.present?
+    return false if SysActionOnTable.find_by_id(sys_action_on_table_id).action[-4..-1] == '_all' && accessible_column_name.present?
     return true
   end
 end
